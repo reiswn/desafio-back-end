@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= params[:store_name] %> :: Saldo em Conta: <%= @saldo %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Cpf</th>
+      <th>Date/Time</th>
+      <th>Transaction type</th>
+      <th>Transaction kind</th>
+      <th>Card</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.id %></td>
+        <td><%= transaction.cpf %></td>
+        <td><%= transaction.transaction_datetime %></td>
+        <td><%= transaction.transaction_type.description %></td>
+        <td><%= transaction.transaction_type.kind %></td>
+        <td><%= transaction.card_number %></td>
+        <td><%= transaction.value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<br>
+<%= link_to "Back", stores_url %>
