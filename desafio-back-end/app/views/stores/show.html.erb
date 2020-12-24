@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= params[:store_name] %> :: Saldo em Conta: <%= @saldo %></h1>
+<h1><%= params[:store_name] %></h1>
+<h2>Account Balance: <%= value_as_money(@saldo) %></h2>
 
 <table>
   <thead>
@@ -24,7 +25,7 @@
         <td><%= transaction.transaction_type.description %></td>
         <td><%= transaction.transaction_type.kind %></td>
         <td><%= transaction.card_number %></td>
-        <td><%= transaction.value %></td>
+        <td><%= value_as_money(transaction.value) %></td>
       </tr>
     <% end %>
   </tbody>
