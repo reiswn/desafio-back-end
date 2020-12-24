@@ -2,6 +2,17 @@
 
 <h1>Transactions</h1>
 
+<fieldset>
+  <legend>UPLOAD a CNAB file</legend>
+  <%= form_tag "/transactions/upload", multipart: true do %>
+    <div class="field">
+      <%= label_tag :file %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Submit" %>
+    </div>
+  <% end %>
+</fieldset>
+
 <table>
   <thead>
     <tr>
@@ -26,9 +37,9 @@
         <td><%= transaction.card_number %></td>
         <td><%= transaction.store_owner %></td>
         <td><%= transaction.store_name %></td>
-        <td><%= link_to 'Show', transaction %></td>
-        <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Show", transaction %></td>
+        <td><%= link_to "Edit", edit_transaction_path(transaction) %></td>
+        <td><%= link_to "Destroy", transaction, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +47,4 @@
 
 <br>
 
-<%= link_to 'New Transaction', new_transaction_path %>
+<%= link_to "New Transaction", new_transaction_path %>
